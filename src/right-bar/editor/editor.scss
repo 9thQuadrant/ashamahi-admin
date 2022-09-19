@@ -1,0 +1,8 @@
+.editor-parent {
+    flex-basis: 40%;    
+    overflow: hidden;
+    min-height: 80vh;
+    .ql-container {
+        min-height: 500px; 
+    }
+}
