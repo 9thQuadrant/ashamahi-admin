@@ -26,7 +26,7 @@ export const emptyStory = {
     created_date: serverTimestamp(),
     id: "id",
     image: "draft",
-    liveStatus: false,
+    liveStatus: true,
     metaImageLink: "draft",
     meta_author: "draft",
     meta_description: "draft",

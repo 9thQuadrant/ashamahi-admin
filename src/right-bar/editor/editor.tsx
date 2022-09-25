@@ -2,7 +2,7 @@ import './editor.scss';
 import { useContext, useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import { addDoc, collection, doc, serverTimestamp, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import firestore from '../../services/firebase';
 import { emptyStory, IStory } from '../../services/interface';
 import { AppContext } from '../../services/context';
