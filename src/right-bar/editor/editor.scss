@@ -1,8 +1,14 @@
+@import '../../css/w3';
+
 .editor-parent {
     flex-basis: 40%;    
     overflow: hidden;
     min-height: 80vh;
-    .ql-container {
+    button {
+        display: block;
+    }
+    @extend .w3-padding;
+    .ql-container , .ql-editor {
         min-height: 500px; 
     }
 }
