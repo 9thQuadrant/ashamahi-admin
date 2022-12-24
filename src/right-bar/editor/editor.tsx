@@ -30,7 +30,7 @@ const EditorComponent = (): JSX.Element => {
         const temp: IStory = { ...localStory };
         temp['content'] = editorText || '';
         setLocalStory(temp);
-
+    // eslint-disable-next-line
     }, [editorText]);
 
     useEffect(() => {
