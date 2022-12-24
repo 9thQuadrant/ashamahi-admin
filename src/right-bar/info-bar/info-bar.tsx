@@ -23,7 +23,8 @@ const InfoBarComponent = (): JSX.Element => {
         'shortnote',
         'url',
         'image',
-        'slideShowImages'
+        'slideShowImages',
+        'category'
     ]
 
     useEffect(() => {

@@ -25,8 +25,7 @@ function App() {
         docs[doc.id]['id'] = doc.id;
       });
       dispatch(updateStories(docs));
-      console.log("updatestories");
-      if (currentStory && currentStory?.['id'] !== 'id') {
+      if (currentStory && currentStory['id'] !== 'id') {
         dispatch(updateCurrentStory(docs[currentStory['id']]));
       }
     });
