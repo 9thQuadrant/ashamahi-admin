@@ -29,6 +29,7 @@ function App() {
         dispatch(updateCurrentStory(docs[currentStory['id']]));
       }
     });
+  // eslint-disable-next-line
   }, []);
 
   const context: any = { state, dispatch };
