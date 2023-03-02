@@ -34,13 +34,11 @@ const ListOfPostsComponent = (): JSX.Element => {
         <ul>
             {
                 Object.keys(localList).length ? Object.keys(localList)?.map((index: string) => {
-                    return <>
-                        <li className='w3-border-bottom w3-padding cursor' key={index} onClick={()=>{setStoryForEdit(index)}}>
+                    return <li className='w3-border-bottom w3-padding cursor' key={index} onClick={()=>{setStoryForEdit(index)}}>
                             <div className='w3-large'>{localList[index].title}</div>
                             <div className='w3-small'>{localList[index].shortnote}</div>
                             <button className="delete" onClick={()=>{deletePage(localList[index].id)}}>Delete</button>
                         </li>
-                    </>
                 }) : <></>
             }
         </ul>

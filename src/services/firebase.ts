@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, query, where } from "firebase/firestore";
+import { collection, getFirestore, orderBy, query, where } from "firebase/firestore";
 
 let config = {
   apiKey: "AIzaSyAAHOZhobZyxwJ6-rD5pfy20tdfaCgvRy4",
@@ -15,4 +15,4 @@ export default firestore;
 
 
 
-export const storiesQuery = query(collection(firestore, "pages"), where("liveStatus", "==", true));
+export const adminQuery = query(collection(firestore, "pages"), orderBy("modified_date"));

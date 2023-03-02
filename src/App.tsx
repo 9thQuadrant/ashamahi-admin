@@ -1,12 +1,13 @@
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { getDocs } from 'firebase/firestore';
 import { useEffect, useReducer } from 'react';
 import './App.scss';
-import ListOfPostsComponent from './left-bar/list-bar';
-import EditorComponent from './right-bar/editor/editor';
-import InfoBarComponent from './right-bar/info-bar/info-bar';
-import { updateCurrentStory, updateStories } from './services/appActions';
+import RoutesMap from './categories/routes';
+import { BrowserRouter } from 'react-router-dom';
+
+import { updateCategories, updateCurrentStory, updateStories } from './services/appActions';
 import { AppContext, AppReducer, InitialAppState } from './services/context';
-import firestore from './services/firebase';
+import { adminQuery } from './services/firebase';
+import { IStory } from './services/interface';
 
 
 function App() {
@@ -18,13 +19,17 @@ function App() {
   );
 
   useEffect(() => {
-    onSnapshot(query(collection(firestore, "pages"), orderBy("modified_date")), (doc) => {
+    getDocs(adminQuery).then( doc => {
       const docs: any = {};
+      const categorySet = new Set<string>();
       doc.forEach((doc) => {
+        const d = doc.data() as IStory;
         docs[doc.id] = doc.data();
         docs[doc.id]['id'] = doc.id;
+        categorySet.add(d.category);
       });
       dispatch(updateStories(docs));
+      dispatch(updateCategories(categorySet));
       if (currentStory && currentStory['id'] !== 'id') {
         dispatch(updateCurrentStory(docs[currentStory['id']]));
       }
@@ -35,13 +40,12 @@ function App() {
   const context: any = { state, dispatch };
 
   return (
+    
     <>
       <AppContext.Provider value={context}>
-        <div className='main-page-parent'>
-          <ListOfPostsComponent></ListOfPostsComponent>
-          <EditorComponent></EditorComponent>
-          <InfoBarComponent></InfoBarComponent>
-        </div>
+            <BrowserRouter>
+              <RoutesMap />
+            </BrowserRouter>
       </AppContext.Provider>
     </>
   );
