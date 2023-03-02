@@ -35,13 +35,11 @@ const InfoBarComponent = (): JSX.Element => {
     return localStory ? <>
         <div className='info-bar-parent'>
             {
-                feildsToBeDisplayed.map((field: string) => {
-                    return <>
-                        <div>
+                feildsToBeDisplayed.map((field: string, index: number) => {
+                    return <div key={index}>
                             <span>{field}: </span>
                             <input type='text' value={localStory[field]} onChange={(e) => { updateStoryInMemory(e.target.value, field) }} onBlur={() => { broadcast() }} />
                         </div>
-                    </>
                 })
             }
         </div>

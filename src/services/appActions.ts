@@ -18,3 +18,7 @@ export function updateStories(data: { [key: string]: IStory }) {
 export function updateCurrentStory(data: IStory | null) {
     return new CreateAction(ACTIONS.UPDATE_CURRENT_STORY, data);
 }
+
+export function updateCategories(data: Set<string>) {
+    return new CreateAction(ACTIONS.UPDATE_CATEGORY_LIST, data);
+}
