@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getFirestore, orderBy, query, where } from "firebase/firestore";
+import { collection, getFirestore, orderBy, query } from "firebase/firestore";
 
 let config = {
   apiKey: "AIzaSyAAHOZhobZyxwJ6-rD5pfy20tdfaCgvRy4",
